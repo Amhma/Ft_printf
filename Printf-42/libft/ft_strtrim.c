@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/02 12:36:57 by amahla            #+#    #+#             */
+/*   Updated: 2022/05/02 12:36:59 by amahla           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libft.h"
 
 static size_t	is_set(char c, char const *set)
@@ -7,9 +19,8 @@ static size_t	is_set(char c, char const *set)
 	i = 0;
 	while (set && *(set + i))
 	{
-		if (c == *(set + i))
+		if (c == *(set + i++))
 			return (1);
-		i++;
 	}
 	return (0);
 }

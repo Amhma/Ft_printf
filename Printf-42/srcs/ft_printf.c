@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/02 12:59:27 by amahla            #+#    #+#             */
+/*   Updated: 2022/05/02 13:08:19 by amahla           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"ft_printf.h"
 
 void	init_flag(t_flag *fg)
@@ -13,24 +25,24 @@ void	init_flag(t_flag *fg)
 	fg->nbrlen = 0;
 }
 
-int	process_print(va_list *ap, char c, t_flag *fg)
+int	process_print(va_list ap, char c, t_flag *fg)
 {
 	char	*str;
 	int		len;
 
 	len = 0;
 	if (c == 'c')
-		str = ft_printf_char(fg, va_arg(*ap, int), &len);
+		str = ft_printf_char(fg, va_arg(ap, int), &len);
 	else if (c == 's')
-		str = ft_printf_str(fg, va_arg(*ap, char *));
+		str = ft_printf_str(fg, va_arg(ap, char *));
 	else if (c == 'p')
-		str = ft_printf_ptr(fg, va_arg(*ap, void *));
+		str = ft_printf_ptr(fg, va_arg(ap, void *));
 	else if (c == 'd' || c == 'i')
-		str = ft_printf_int(fg, va_arg(*ap, int));
+		str = ft_printf_int(fg, va_arg(ap, int));
 	else if (c == 'u')
-		str = ft_printf_uint(fg, va_arg(*ap, unsigned int));
+		str = ft_printf_uint(fg, va_arg(ap, unsigned int));
 	else if (c == 'x' || c == 'X')
-		str = ft_printf_hex(fg, va_arg(*ap, int), c);
+		str = ft_printf_hex(fg, va_arg(ap, int), c);
 	else
 		str = ft_print_pct(fg);
 	if (!len)
@@ -87,7 +99,7 @@ void	process(va_list ap, char *str, int *count)
 			while (*(str + i) && !is_conv(str[i]))
 				i++;
 			if (*(str + i) && is_conv(str[i]))
-				*count = *count + process_print(&ap, *(str + i++), &fg);
+				*count = *count + process_print(ap, *(str + i++), &fg);
 		}
 		else
 		{
