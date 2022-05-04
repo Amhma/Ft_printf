@@ -1,6 +1,6 @@
 NAME	= libftprintf.a
 DIRLFT	= libft/libft.a
-CC		= clang
+CC		= gcc
 AR		= ar rcs
 MAKE	= make
 CFLAGS	= -Wall -Werror -Wextra

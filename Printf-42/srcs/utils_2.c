@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:00:53 by amahla            #+#    #+#             */
-/*   Updated: 2022/05/02 13:00:55 by amahla           ###   ########.fr       */
+/*   Updated: 2022/05/04 12:40:05 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*let_upper(char *str)
 
 	i = 0;
 	dest = ft_calloc((ft_strlen(str) + 1), sizeof(char));
-	while (str && *(str + i))
+	while (dest && str && *(str + i))
 	{
 		*(dest + i) = ft_toupper(*(str + i));
 		i++;

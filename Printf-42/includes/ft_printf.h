@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:01:30 by amahla            #+#    #+#             */
-/*   Updated: 2022/05/02 13:01:31 by amahla           ###   ########.fr       */
+/*   Updated: 2022/05/03 14:21:08 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_printf_str(t_flag *fg, char *to_print);
 
 //		ft_print_ptr_pct.c
 char	*ft_printf_ptr(t_flag *fg, void *ptr);
-char	*ft_print_pct(t_flag *fg);
+char	*ft_print_pct(void);
 
 //		ft_print_hex.c
 char	*ft_printf_hex(t_flag *fg, int nb, char c);

@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:59:27 by amahla            #+#    #+#             */
-/*   Updated: 2022/05/02 13:08:19 by amahla           ###   ########.fr       */
+/*   Updated: 2022/05/03 14:22:39 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	process_print(va_list ap, char c, t_flag *fg)
 	else if (c == 'x' || c == 'X')
 		str = ft_printf_hex(fg, va_arg(ap, int), c);
 	else
-		str = ft_print_pct(fg);
+		str = ft_print_pct();
 	if (!len)
 		len = ft_strlen(str);
 	ft_putstr_len(str, len);

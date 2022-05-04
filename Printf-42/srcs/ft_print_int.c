@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:59:53 by amahla            #+#    #+#             */
-/*   Updated: 2022/05/02 12:59:54 by amahla           ###   ########.fr       */
+/*   Updated: 2022/05/04 12:24:49 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ char	*ft_printf_int(t_flag *fg, int nb)
 	if (!str)
 	{
 		str = ft_calloc(fg->nbrlen + option + 1, sizeof(char));
+		if (!str)
+			return (NULL);
 		ft_memset(str, '0', fg->nbrlen + option);
 	}
 	if (fg->nbrlen)

@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:59:44 by amahla            #+#    #+#             */
-/*   Updated: 2022/05/02 12:59:45 by amahla           ###   ########.fr       */
+/*   Updated: 2022/05/04 12:24:02 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ char	*ft_printf_hex(t_flag *fg, int nb, char c)
 	if (!str)
 	{
 		str = ft_calloc(fg->nbrlen + option + 1, sizeof(char));
+		if (!str)
+			return (NULL);
 		ft_memset(str, '0', fg->nbrlen + option);
 	}
 	if (fg->nbrlen)

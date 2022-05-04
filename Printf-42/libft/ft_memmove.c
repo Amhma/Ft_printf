@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:32:15 by amahla            #+#    #+#             */
-/*   Updated: 2022/05/02 12:32:19 by amahla           ###   ########.fr       */
+/*   Updated: 2022/05/04 16:13:20 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if (src < dst && src + len > dst)
 	{
 		i = len - 1;
-		while (i >= 0 && i < len)
+		while (len--)
 		{
 			*((unsigned char *)dst + i) = *((unsigned char *)src + i);
 			i--;

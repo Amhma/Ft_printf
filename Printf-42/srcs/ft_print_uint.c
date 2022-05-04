@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:00:34 by amahla            #+#    #+#             */
-/*   Updated: 2022/05/02 13:00:35 by amahla           ###   ########.fr       */
+/*   Updated: 2022/05/04 12:38:47 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ char	*ft_printf_uint(t_flag *fg, unsigned int nb)
 	if (!str && fg->nbrlen)
 	{
 		str = ft_calloc(fg->nbrlen + 1, sizeof(char));
+		if (!str)
+			return (NULL);
 		ft_memset(str, ' ', fg->nbrlen);
 	}
 	ft_fill_uint(fg, str, nb);

@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:00:21 by amahla            #+#    #+#             */
-/*   Updated: 2022/05/02 13:00:22 by amahla           ###   ########.fr       */
+/*   Updated: 2022/05/04 13:17:45 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ char	*ft_printf_char(t_flag *fg, char c, int *len)
 {
 	char	*str;
 	int		option;
-	int		i;
 
 	str = NULL;
-	i = 0;
 	option = init_charflag(fg);
 	fg->nbrlen = 1;
 	str = ft_flag(fg, option);
 	if (!str)
 	{
 		str = ft_calloc(fg->nbrlen + option + 1, sizeof(char));
+		if (!str)
+			return (NULL);
 		ft_memset(str, '0', fg->nbrlen + option);
 	}
 	*len = ft_strlen(str);
@@ -60,6 +60,19 @@ char	*ft_point(t_flag *fg, char *str)
 	return (dst);
 }
 
+int	calloc_str(char **str, int size)
+{
+	*str = ft_calloc(size + 1, sizeof(char));
+	if (!*str)
+	{
+		*str = NULL;
+		return (0);
+	}
+	else
+		ft_memset(*str, ' ', size);
+	return (1);
+}	
+
 char	*ft_printf_str(t_flag *fg, char *to_print)
 {
 	char	*str;
@@ -78,8 +91,8 @@ char	*ft_printf_str(t_flag *fg, char *to_print)
 	str = ft_flag(fg, 0);
 	if (!str)
 	{
-		str = ft_calloc(fg->nbrlen + 1, sizeof(char));
-		ft_memset(str, ' ', fg->nbrlen);
+		if (!calloc_str(&str, fg->nbrlen))
+			return (NULL);
 	}
 	if (fg->minus)
 		ft_memcpy(str, src, ft_strlen(src));
