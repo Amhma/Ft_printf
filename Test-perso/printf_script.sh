@@ -1,5 +1,9 @@
 #!/bin/bash
 
+cd ../Printf-42/
+make
+cd ../Test-perso
+
 if  [ "$1" == "gcc" ]
 then
 	gcc -Wall -Werror -Wextra test/test_main_gcc_exemple.c -L ../Printf-42 -lftprintf	

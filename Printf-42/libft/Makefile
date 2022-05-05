@@ -1,5 +1,5 @@
 NAME	= libft.a
-CC		= gcc
+CC		= cc
 AR		= ar rcs
 CFLAGS	= -Wall -Werror -Wextra
 SRC		= ft_itoa.c	ft_putstr_fd.c	ft_strmapi.c \
@@ -27,12 +27,13 @@ $(NAME) : $(OBJ)
 .c.o	:
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-.PHONY	: all bonus clean fclean re
+.PHONY	: all clean fclean re
 
 clean	:
-	$(RM) $(OBJ) $(OBJ_BS)
+	$(RM) $(OBJ)
 
 fclean	: clean
 	$(RM) $(NAME)
 
-re		: fclean all
+re		: fclean
+	make all
