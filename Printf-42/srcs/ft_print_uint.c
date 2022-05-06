@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:00:34 by amahla            #+#    #+#             */
-/*   Updated: 2022/05/04 12:38:47 by amahla           ###   ########.fr       */
+/*   Updated: 2022/05/06 11:22:19 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,16 @@ void	ft_fill_uint(t_flag *fg, char *str, int nb)
 {
 	int	size;
 
-	if (fg->minus && fg->nbrlen)
+	if (fg->minus)
 	{
 		if (start_zero(str, fg->nbrlen) == -1)
 			size = 0;
 		else
 			size = start_zero(str, fg->nbrlen);
 	}
-	else if (fg->nbrlen)
+	else
 		size = ft_strlen(str) - fg->nbrlen;
-	if (fg->nbrlen)
-		ft_utoa(nb, str, size);
+	ft_utoa(nb, str, size);
 }
 
 char	*ft_printf_uint(t_flag *fg, unsigned int nb)
@@ -57,6 +56,7 @@ char	*ft_printf_uint(t_flag *fg, unsigned int nb)
 			return (NULL);
 		ft_memset(str, ' ', fg->nbrlen);
 	}
-	ft_fill_uint(fg, str, nb);
+	if (fg->nbrlen)
+		ft_fill_uint(fg, str, nb);
 	return (str);
 }
